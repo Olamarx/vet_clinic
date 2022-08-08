@@ -2,7 +2,6 @@
 
 SELECT * from animals WHERE name = 'Luna';
 
--- First query
 -- Find all animals whose name ends in "mon".
 postgres=# SELECT * FROM  WHERE name LIKE '%mon';
 
