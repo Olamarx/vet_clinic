@@ -65,3 +65,14 @@ postgres-# FROM animals GROUP BY species;
 postgres=# SELECT
 postgres-# species,
 postgres-# AVG(escape_attempts) "Average attempts of escape" FROM animals WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31' GROUP BY species;
+
+-- Third task
+
+postgres=# INSERT INTO owners (full_name, age) VALUES ('Sam Smith', 34), ('Jennifer Orwell', 19), ('Bob', 45), ('Melody Pond', 77), ('Dean Winchester', 14), ('Jodie Whittaker', 38);
+postgres=# INSERT INTO species (name) VALUES ('Pokemon'), ('Digimon');
+postgres=# UPDATE animals SET species_id = species.id FROM species WHERE species.name = 'Digimon' AND animals.name LIKE '%mon'; UPDATE animals SET species_id = species.id FROM species WHERE animals.name NOT LIKE '%mon' AND species.name = 'Pokemon';
+postgres=# UPDATE animals SET owner_id = owners.id FROM owners WHERE owners.full_name = 'Sam Smith' AND animals.name = 'Agumon';
+postgres=# UPDATE animals SET owner_id = owners.id FROM owners WHERE owners.full_name = 'Jennifer Orwell' AND (animals.name = 'Gabumon' OR animals.name = 'Pikachu');
+postgres=# UPDATE animals SET owner_id = owners.id FROM owners WHERE owners.full_name = 'Bob' AND (animals.name = 'Devimon' OR animals.name = 'Plantmon');
+postgres=# UPDATE animals SET owner_id = owners.id FROM owners WHERE owners.full_name = 'Melody Pond' AND (animals.name = 'Charmander' OR animals.name = 'Squirtle' OR animals.name = 'Blossom');
+postgres=# UPDATE animals SET owner_id = owners.id FROM owners WHERE owners.full_name = 'Dean Winchester' AND (animals.name = 'Angemon' OR animals.name = 'Boarmon');
