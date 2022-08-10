@@ -17,3 +17,8 @@ postgres=# ALTER TABLE vet_clinic
 postgres-# ADD name varchar(100);
 ALTER TABLE
 postgres=# \d vet_clinic
+
+
+-- Add a column species of type string to your animals table. Modify your schema.sql file.
+postgres=# ALTER TABLE animals
+postgres-# ADD species varchar(100);
