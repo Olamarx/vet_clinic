@@ -1,6 +1,5 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-
 ## Add a column species of type string to your animals table. Modify your schema.sql file.
 <p align="center">
   <img
@@ -107,7 +106,7 @@
 ## What is the average number of escape attempts per animal type of those born between 1990 and 2000?
 <p align="center">
   <img
-  src="./final.png"
+  src="./1stChange.png"
   alt="final"
   >
 </p>
