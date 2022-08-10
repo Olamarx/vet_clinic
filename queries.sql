@@ -76,3 +76,13 @@ postgres=# UPDATE animals SET owner_id = owners.id FROM owners WHERE owners.full
 postgres=# UPDATE animals SET owner_id = owners.id FROM owners WHERE owners.full_name = 'Bob' AND (animals.name = 'Devimon' OR animals.name = 'Plantmon');
 postgres=# UPDATE animals SET owner_id = owners.id FROM owners WHERE owners.full_name = 'Melody Pond' AND (animals.name = 'Charmander' OR animals.name = 'Squirtle' OR animals.name = 'Blossom');
 postgres=# UPDATE animals SET owner_id = owners.id FROM owners WHERE owners.full_name = 'Dean Winchester' AND (animals.name = 'Angemon' OR animals.name = 'Boarmon');
+
+
+postgres=# SELECT name, full_name Owner FROM owners JOIN animals ON owners.id = animals.owner_id WHERE owners.full_name = 'Melody Pond';
+postgres=# SELECT animals.name, species.name FROM animals JOIN species ON animals.species_id = species.id WHERE species.name = 'Pokemon';
+postgres=# SELECT animals.name, owners.full_name FROM animals FULL JOIN owners ON owners.id = animals.owner_id;
+postgres=# SELECT count(animals.name), species.name FROM species JOIN animals ON species.id = animals.species_id GROUP BY species.name;
+postgres=# SELECT animals.name FROM animals JOIN owners ON animals.owner_id = owners.id WHERE owners.full_name = 'Jennifer Orwell';
+postgres=# SELECT animals.name FROM animals JOIN owners ON animals.owner_id = owners.id WHERE owners.full_name = 'Dean Winchester' AND animals.escape_attempts = 0;
+postgres=# SELECT owners.full_name, count(animals.name) as animals FROM animals JOIN owners ON animals.owner_id = owners.id GROUP BY owners.full_name ORDER BY animals DESC;
+
