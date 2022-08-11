@@ -22,3 +22,14 @@ postgres=# \d vet_clinic
 -- Add a column species of type string to your animals table. Modify your schema.sql file.
 postgres=# ALTER TABLE animals
 postgres-# ADD species varchar(100);
+
+
+-- Third task
+
+postgres=# CREATE TABLE owners (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, full_name VARCHAR(120), age INT);
+
+postgres=# CREATE TABLE species (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY, name VARCHAR(120));
+
+postgres=# ALTER TABLE animals DROP COLUMN species;
+
+postgres=# ALTER TABLE animals ADD COLUMN species_id INT,ADD COLUMN owner_id INT,ADD FOREIGN KEY (species_id) REFERENCES species(id), ADD FOREIGN KEY (owner_id) REFERENCES owners(id);
