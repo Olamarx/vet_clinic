@@ -33,3 +33,28 @@ postgres=# CREATE TABLE species (id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY
 postgres=# ALTER TABLE animals DROP COLUMN species;
 
 postgres=# ALTER TABLE animals ADD COLUMN species_id INT,ADD COLUMN owner_id INT,ADD FOREIGN KEY (species_id) REFERENCES species(id), ADD FOREIGN KEY (owner_id) REFERENCES owners(id);
+
+-- Fourth Task
+
+CREATE TABLE visits  (
+    id SERIAL NOT NULL,
+    animal_id INT,
+    vet_id INT,
+    visit DATE,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE specializations  (
+    id SERIAL NOT NULL,
+    vet_id INT,
+    specie_id INT,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE vets (
+    id SERIAL NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    age SMALLINT,
+    date_of_graduation DATE,
+    PRIMARY KEY (id)
+);
